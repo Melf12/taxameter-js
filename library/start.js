@@ -76,6 +76,9 @@ function start(taxameter) {
         setInterval(() => {
             if (taxameter.turStartetTidspunkt === undefined) {
                 elementer.tid.innerText = '0:00';
+                //Her har jeg skrevet at når taxa'en er undefined, altså ikke kører, så skal teksten på skærmen ændres prisen fra 0 til min taxa information. Man kunne også have ændret tidens tekst eller afstanden men valgt bare prisen.
+                elementer.pris.innerText = taxameter.information;
+                
             } else {
                 const tidGaaet = Math.floor((new Date() - taxameter.turStartetTidspunkt) / 1000);
                 const sekunder = ("00" + tidGaaet % 60).slice(-2);
